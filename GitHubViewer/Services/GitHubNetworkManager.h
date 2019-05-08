@@ -14,8 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GitHubNetworkManager : NSObject
 + (GitHubNetworkManager*) sharedManager;
 
-- (void)getReposListFromServerOnSuccess:(void(^)(NSArray* news))success
-                          onFailure:(void(^)(NSError* error))failure;
+- (void)getReposListFromPage:(int)pageNumber
+               withPostCount:(int)postCount
+                   onSuccess:(void(^)(NSArray* repos))success
+                   onFailure:(void(^)(NSError* error))failure;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,8 +8,10 @@
 
 #import "GitHubNetworkManager.h"
 #import "ResponseAdapter.h"
-
 #import <FastEasyMapping.h>
+
+#define BASE_URL [NSURL URLWithString:@"https://api.github.com/search/"]
+#define REQUEST_PARAMETERS @"repositories?q=language:swift&sort=stars&order=desc"
 
 @interface GitHubNetworkManager ()
 @property (strong, nonatomic) AFHTTPSessionManager* sessionManager;
@@ -30,17 +32,18 @@
     self = [super init];
     if (self) {
         // TO DO
-        NSURL* baseURL = [NSURL URLWithString:@"https://api.github.com/search/"];
-        self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
+        self.sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:BASE_URL];
     }
     return self;
 }
 
-- (void) getReposListFromServerOnSuccess:(void(^)(NSArray* news))success
-                          onFailure:(void(^)(NSError* error))failure {
-    
-    
-    [self.sessionManager GET:@"repositories?q=language:swift&sort=stars&order=desc"
+- (void)getReposListFromPage:(int)pageNumber
+               withPostCount:(int)postCount
+                   onSuccess:(void(^)(NSArray* repos))success
+                   onFailure:(void(^)(NSError* error))failure {
+ 	
+    NSString *parameters = [NSString stringWithFormat:@"%@&per_page=%d&page=%d", REQUEST_PARAMETERS, postCount, pageNumber];
+    [self.sessionManager GET:parameters
                   parameters:nil
                     progress:nil
                      success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary   * _Nullable responseObject) {
@@ -53,6 +56,5 @@
                          
                          NSLog(@"ERROR - %@", [error localizedDescription]);
                      }];
-    
 }
 @end
