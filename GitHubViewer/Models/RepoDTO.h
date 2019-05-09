@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "ReposOwnerDTO.h"
+#import "RepoLastActivityDTO.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ReposDTO : NSObject
-@property (nonatomic, strong) NSString *title;
+@interface RepoDTO : NSObject
+
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *reposDecscription;
 @property (nonatomic, strong) ReposOwnerDTO *ownerDTO;
+@property (nonatomic, strong) RepoLastActivityDTO *lastActivityDTO;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,9 +7,8 @@
 //
 
 #import "ReposTableViewCell.h"
-#import "ReposDTO.h"
+#import "RepoDTO.h"
 #import "PINImageView+PINRemoteImage.h"
-#import <Foundation/Foundation.h>
 
 @interface ReposTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -22,10 +21,10 @@
 
 #pragma mark - Interface -
 
-- (void)setupWithReposDTO:(ReposDTO *)reposDTO {
+- (void)setupWithReposDTO:(RepoDTO *)reposDTO {
     [self.avatarImageView setPin_updateWithProgress: YES];
     [self.avatarImageView pin_setImageFromURL:[NSURL URLWithString:reposDTO.ownerDTO.avatarURLString]];
-    self.reposTitleLabel.text = [reposDTO.title capitalizedString];
+    self.reposTitleLabel.text = [reposDTO.name capitalizedString];
     self.reposDescriptionLabel.text = reposDTO.reposDecscription;
     self.ownerNameLabel.text = reposDTO.ownerDTO.name;
 }

@@ -10,11 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class ReposDTO;
+@class RepoDTO;
+@class RepoLastActivityDTO;
 
 @interface ResponseAdapter : NSObject
 
 + (NSArray *)getReposDTOsFromResponse:(NSDictionary *)response;
++ (RepoLastActivityDTO *)getLastActivityFromResponse:(NSArray *)response;
 
 @end
 

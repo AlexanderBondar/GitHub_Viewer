@@ -1,8 +1,8 @@
 //
-//  ReposTableViewCell.h
+//  RepoDetailViewController.h
 //  GitHubViewer
 //
-//  Created by Alexandr Bondar on 5/2/19.
+//  Created by Alexandr Bondar on 5/9/19.
 //  Copyright © 2019 Alexandr Bondar. All rights reserved.
 //
 
@@ -12,9 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class RepoDTO;
 
-@interface ReposTableViewCell : UITableViewCell
-
-- (void)setupWithReposDTO:(RepoDTO *)reposDTO;
+@interface RepoDetailViewController : UIViewController
+@property (nonatomic, strong) RepoDTO *repoDTO;
 
 @end
 

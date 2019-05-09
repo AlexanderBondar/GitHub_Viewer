@@ -8,7 +8,7 @@
 
 #import "ResponseAdapter.h"
 #import <FastEasyMapping.h>
-#import "ReposDTO.h"
+#import "RepoDTO.h"
 #import "ReposOwnerDTO.h"
 
 @implementation ResponseAdapter
@@ -23,9 +23,9 @@
 }
 
 + (FEMMapping*)defaultReposMapping {
-    FEMMapping* mapping = [[FEMMapping alloc] initWithObjectClass:[ReposDTO class]];
+    FEMMapping* mapping = [[FEMMapping alloc] initWithObjectClass:[RepoDTO class]];
     
-    [mapping addAttributesFromDictionary:@{@"title"             : @"name" ,
+    [mapping addAttributesFromDictionary:@{@"name"              : @"name" ,
                                            @"reposDecscription" : @"description" }];
     [mapping addRelationshipMapping:[ResponseAdapter defaultReposOwnerMapping] forProperty:@"ownerDTO" keyPath:@"owner"];
     return mapping;
@@ -39,6 +39,32 @@
                                            @"name"            : @"login"       }];
     return mapping;
 }
+
++ (RepoLastActivityDTO *)getLastActivityFromResponse:(NSArray *)response {
+    
+    RepoLastActivityDTO *lastActivityDTO = nil;
+    NSDictionary *commit = response.firstObject;
+    if (commit) {
+        NSDictionary *authorAvatarDict = commit[@"author"];
+        NSString *authorAvatarString = authorAvatarDict[@"avatar_url"];
+        
+        NSDictionary *commitDetailDict = commit[@"commit"];
+        NSDictionary *authorNameDictionary = commitDetailDict[@"author"];
+        NSString *authotName = authorNameDictionary[@"name"];
+        
+        NSString *commitMessage = commitDetailDict[@"message"];
+        
+        NSString *commitHash = commit[@"sha"];
+        lastActivityDTO = [RepoLastActivityDTO new];
+        lastActivityDTO.committerName = authotName;
+        lastActivityDTO.committerAvatarURLString = authorAvatarString;
+        lastActivityDTO.commitHash = commitHash;
+        lastActivityDTO.commitMessage = commitMessage;
+        return lastActivityDTO;
+    }
+    return lastActivityDTO;
+}
+
 @end
 
 

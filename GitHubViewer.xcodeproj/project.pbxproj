@@ -16,9 +16,12 @@
 		FF048E19227B5D310086136C /* ReposListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E18227B5D310086136C /* ReposListViewController.m */; };
 		FF048E1C227B6B390086136C /* ReposTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E1B227B6B390086136C /* ReposTableViewCell.m */; };
 		FF048E20227B8FB50086136C /* GitHubNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E1F227B8FB50086136C /* GitHubNetworkManager.m */; };
-		FF048E23227C22C00086136C /* ReposDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E22227C22C00086136C /* ReposDTO.m */; };
+		FF048E23227C22C00086136C /* RepoDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E22227C22C00086136C /* RepoDTO.m */; };
 		FF048E26227C29750086136C /* ResponseAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E25227C29750086136C /* ResponseAdapter.m */; };
 		FF048E29227C30610086136C /* ReposOwnerDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E28227C30610086136C /* ReposOwnerDTO.m */; };
+		FF893BF022847E28003A2EE6 /* PCAngularActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF893BEF22847E28003A2EE6 /* PCAngularActivityIndicatorView.m */; };
+		FFE2099B228419FA00133132 /* RepoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE2099A228419FA00133132 /* RepoDetailViewController.m */; };
+		FFE2099E2284306B00133132 /* RepoLastActivityDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE2099D2284306B00133132 /* RepoLastActivityDTO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +42,18 @@
 		FF048E1B227B6B390086136C /* ReposTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReposTableViewCell.m; sourceTree = "<group>"; };
 		FF048E1E227B8FB50086136C /* GitHubNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitHubNetworkManager.h; sourceTree = "<group>"; };
 		FF048E1F227B8FB50086136C /* GitHubNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHubNetworkManager.m; sourceTree = "<group>"; };
-		FF048E21227C22C00086136C /* ReposDTO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReposDTO.h; sourceTree = "<group>"; };
-		FF048E22227C22C00086136C /* ReposDTO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReposDTO.m; sourceTree = "<group>"; };
+		FF048E21227C22C00086136C /* RepoDTO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoDTO.h; sourceTree = "<group>"; };
+		FF048E22227C22C00086136C /* RepoDTO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepoDTO.m; sourceTree = "<group>"; };
 		FF048E24227C29750086136C /* ResponseAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponseAdapter.h; sourceTree = "<group>"; };
 		FF048E25227C29750086136C /* ResponseAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseAdapter.m; sourceTree = "<group>"; };
 		FF048E27227C30610086136C /* ReposOwnerDTO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReposOwnerDTO.h; sourceTree = "<group>"; };
 		FF048E28227C30610086136C /* ReposOwnerDTO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReposOwnerDTO.m; sourceTree = "<group>"; };
+		FF893BEE22847E28003A2EE6 /* PCAngularActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCAngularActivityIndicatorView.h; path = "../../../../../Utils/PCAngularActivityIndicatorView-master/PCAngularActivityIndicatorView.h"; sourceTree = "<group>"; };
+		FF893BEF22847E28003A2EE6 /* PCAngularActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCAngularActivityIndicatorView.m; path = "../../../../../Utils/PCAngularActivityIndicatorView-master/PCAngularActivityIndicatorView.m"; sourceTree = "<group>"; };
+		FFE20999228419FA00133132 /* RepoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoDetailViewController.h; sourceTree = "<group>"; };
+		FFE2099A228419FA00133132 /* RepoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepoDetailViewController.m; sourceTree = "<group>"; };
+		FFE2099C2284306B00133132 /* RepoLastActivityDTO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoLastActivityDTO.h; sourceTree = "<group>"; };
+		FFE2099D2284306B00133132 /* RepoLastActivityDTO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepoLastActivityDTO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +106,7 @@
 		FF048DFD227B5BC60086136C /* GitHubViewer */ = {
 			isa = PBXGroup;
 			children = (
+				FF603C4B22846E3A00998FDE /* Libs */,
 				FF048E2B227CCBBC0086136C /* DefaultFolder */,
 				FF048E2A227CCAEE0086136C /* Storyboards */,
 				FF048E1D227B8F880086136C /* Services */,
@@ -110,10 +120,12 @@
 		FF048E14227B5C1F0086136C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF048E21227C22C00086136C /* ReposDTO.h */,
-				FF048E22227C22C00086136C /* ReposDTO.m */,
+				FF048E21227C22C00086136C /* RepoDTO.h */,
+				FF048E22227C22C00086136C /* RepoDTO.m */,
 				FF048E27227C30610086136C /* ReposOwnerDTO.h */,
 				FF048E28227C30610086136C /* ReposOwnerDTO.m */,
+				FFE2099C2284306B00133132 /* RepoLastActivityDTO.h */,
+				FFE2099D2284306B00133132 /* RepoLastActivityDTO.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +144,8 @@
 			children = (
 				FF048E17227B5D310086136C /* ReposListViewController.h */,
 				FF048E18227B5D310086136C /* ReposListViewController.m */,
+				FFE20999228419FA00133132 /* RepoDetailViewController.h */,
+				FFE2099A228419FA00133132 /* RepoDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -166,6 +180,23 @@
 				FF048E0D227B5BC70086136C /* main.m */,
 			);
 			path = DefaultFolder;
+			sourceTree = "<group>";
+		};
+		FF603C4B22846E3A00998FDE /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				FF603C5A22847C1400998FDE /* ActivityIndicator */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		FF603C5A22847C1400998FDE /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				FF893BEE22847E28003A2EE6 /* PCAngularActivityIndicatorView.h */,
+				FF893BEF22847E28003A2EE6 /* PCAngularActivityIndicatorView.m */,
+			);
+			path = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,11 +296,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF048E19227B5D310086136C /* ReposListViewController.m in Sources */,
-				FF048E23227C22C00086136C /* ReposDTO.m in Sources */,
+				FF048E23227C22C00086136C /* RepoDTO.m in Sources */,
 				FF048E20227B8FB50086136C /* GitHubNetworkManager.m in Sources */,
+				FF893BF022847E28003A2EE6 /* PCAngularActivityIndicatorView.m in Sources */,
 				FF048E26227C29750086136C /* ResponseAdapter.m in Sources */,
 				FF048E1C227B6B390086136C /* ReposTableViewCell.m in Sources */,
 				FF048E29227C30610086136C /* ReposOwnerDTO.m in Sources */,
+				FFE2099E2284306B00133132 /* RepoLastActivityDTO.m in Sources */,
+				FFE2099B228419FA00133132 /* RepoDetailViewController.m in Sources */,
 				FF048E0E227B5BC70086136C /* main.m in Sources */,
 				FF048E00227B5BC60086136C /* AppDelegate.m in Sources */,
 			);

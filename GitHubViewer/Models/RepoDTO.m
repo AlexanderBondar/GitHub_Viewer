@@ -6,8 +6,8 @@
 //  Copyright © 2019 Alexandr Bondar. All rights reserved.
 //
 
-#import "ReposDTO.h"
+#import "RepoDTO.h"
 
-@implementation ReposDTO
+@implementation RepoDTO
 
 @end

@@ -1,0 +1,6 @@
+module Pods_GitHubViewer {
+  umbrella header "Pods-GitHubViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

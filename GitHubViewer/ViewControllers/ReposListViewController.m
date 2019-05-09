@@ -7,12 +7,14 @@
 //
 
 #import "ReposListViewController.h"
+#import "RepoDetailViewController.h"
 #import "ReposTableViewCell.h"
 #import "GitHubNetworkManager.h"
-#import "ReposDTO.h"
+#import "RepoDTO.h"
 
 #import <UIScrollView+SVInfiniteScrolling.h>
 #import <UIScrollView+SVPullToRefresh.h>
+#import "PCAngularActivityIndicatorView.h"
 
 #define VERTICAL_OFFSET 30 + UIScreen.mainScreen.bounds.size.width/4
 #define HORIZONTAL_OFFSET 40
@@ -23,17 +25,20 @@ static NSString* kReposCellIdentifier = @"ReposTableViewCell";
 
 @interface ReposListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *reposListTableView;
-@property (nonatomic, strong) NSMutableArray <ReposDTO *> *reposList;
+@property (nonatomic, strong) NSMutableArray <RepoDTO *> *reposList;
 @property (assign, nonatomic) BOOL isLoadingData;
+@property (nonatomic, strong) PCAngularActivityIndicatorView *activityIndicator;
 @end
 
 @implementation ReposListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.reposList = [NSMutableArray new];
-    self.isLoadingData = NO;
-    [self addInfiniteScrolling];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self initialSetup];
     [self getPostsFromGitHub];
 }
 
@@ -53,7 +58,7 @@ static NSString* kReposCellIdentifier = @"ReposTableViewCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.reposList.count) {
-        ReposDTO* dto = self.reposList[indexPath.row];
+        RepoDTO* dto = self.reposList[indexPath.row];
         return [self heightForCellWithText:dto.reposDecscription];
     }
     return 180;
@@ -62,9 +67,17 @@ static NSString* kReposCellIdentifier = @"ReposTableViewCell";
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (self.isLoadingData)
+        return;
     
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RepoDetailViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"RepoDetailViewController"];
+    vc.repoDTO = self.reposList[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
+#pragma mark - Private methods
 
 - (CGFloat)heightForCellWithText:(NSString*)text {
     UIFont* font = [UIFont systemFontOfSize:17.f];
@@ -77,10 +90,8 @@ static NSString* kReposCellIdentifier = @"ReposTableViewCell";
     return CGRectGetHeight(rect) + VERTICAL_OFFSET;
 }
 
-#pragma mark - Private methods
-
 - (void)getPostsFromGitHub {
-    self.isLoadingData = NO;
+    self.isLoadingData = YES;
     __weak typeof(self) weakSelf = self;
 
     [[GitHubNetworkManager sharedManager] getReposListFromPage:(int)self.reposList.count/DEFAULT_REPOS_COUNT + 1
@@ -88,15 +99,24 @@ static NSString* kReposCellIdentifier = @"ReposTableViewCell";
      
                                                      onSuccess:^(NSArray * _Nonnull repos) {
                                                          [weakSelf.reposList addObjectsFromArray:repos];
+                                                         [self.activityIndicator stopAnimating];
                                                          [weakSelf.reposListTableView reloadData];
                                                          weakSelf.isLoadingData = NO;
                                                          [weakSelf.reposListTableView.infiniteScrollingView stopAnimating];
-                                                         
+
                                                      } onFailure:^(NSError * _Nonnull error) {
                                                          NSLog(@"<<<Error during loading repos: %@", error.localizedDescription);
                                                          weakSelf.isLoadingData = NO;
                                                          [weakSelf.reposListTableView.infiniteScrollingView stopAnimating];
+                                                         [self.activityIndicator stopAnimating];
                                                      }];
+}
+
+- (void)initialSetup {
+    self.reposList = [NSMutableArray new];
+    self.isLoadingData = NO;
+    [self addActivityIndicator];
+    [self addInfiniteScrolling];
 }
 
 - (void)addInfiniteScrolling {
@@ -112,6 +132,17 @@ static NSString* kReposCellIdentifier = @"ReposTableViewCell";
     }];
 }
 
+- (void)addActivityIndicator {
+    CGRect activityIndicatorFrame = CGRectMake([UIApplication sharedApplication].keyWindow.frame.size.width/2 - 30,
+                                               [UIApplication sharedApplication].keyWindow.frame.size.height/2 - 100,
+                                               60, 60);
+    
+    self.activityIndicator = [[PCAngularActivityIndicatorView alloc] initWithActivityIndicatorStyle:PCAngularActivityIndicatorViewStyleLarge];
+    self.activityIndicator.frame = activityIndicatorFrame;
+    self.activityIndicator.color = [UIColor darkGrayColor];
+    [self.activityIndicator startAnimating];
+    [self.reposListTableView addSubview:self.activityIndicator];
+}
 
 - (void)refreshWall {
     
