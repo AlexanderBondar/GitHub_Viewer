@@ -19,7 +19,7 @@
 		FF048E23227C22C00086136C /* RepoDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E22227C22C00086136C /* RepoDTO.m */; };
 		FF048E26227C29750086136C /* ResponseAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E25227C29750086136C /* ResponseAdapter.m */; };
 		FF048E29227C30610086136C /* ReposOwnerDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FF048E28227C30610086136C /* ReposOwnerDTO.m */; };
-		FF893BF022847E28003A2EE6 /* PCAngularActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF893BEF22847E28003A2EE6 /* PCAngularActivityIndicatorView.m */; };
+		FFD7E0442284877A00E01628 /* PCAngularActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD7E0432284877A00E01628 /* PCAngularActivityIndicatorView.m */; };
 		FFE2099B228419FA00133132 /* RepoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE2099A228419FA00133132 /* RepoDetailViewController.m */; };
 		FFE2099E2284306B00133132 /* RepoLastActivityDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE2099D2284306B00133132 /* RepoLastActivityDTO.m */; };
 /* End PBXBuildFile section */
@@ -48,8 +48,8 @@
 		FF048E25227C29750086136C /* ResponseAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseAdapter.m; sourceTree = "<group>"; };
 		FF048E27227C30610086136C /* ReposOwnerDTO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReposOwnerDTO.h; sourceTree = "<group>"; };
 		FF048E28227C30610086136C /* ReposOwnerDTO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReposOwnerDTO.m; sourceTree = "<group>"; };
-		FF893BEE22847E28003A2EE6 /* PCAngularActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCAngularActivityIndicatorView.h; path = "../../../../../Utils/PCAngularActivityIndicatorView-master/PCAngularActivityIndicatorView.h"; sourceTree = "<group>"; };
-		FF893BEF22847E28003A2EE6 /* PCAngularActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCAngularActivityIndicatorView.m; path = "../../../../../Utils/PCAngularActivityIndicatorView-master/PCAngularActivityIndicatorView.m"; sourceTree = "<group>"; };
+		FFD7E0422284877A00E01628 /* PCAngularActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCAngularActivityIndicatorView.h; sourceTree = "<group>"; };
+		FFD7E0432284877A00E01628 /* PCAngularActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCAngularActivityIndicatorView.m; sourceTree = "<group>"; };
 		FFE20999228419FA00133132 /* RepoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoDetailViewController.h; sourceTree = "<group>"; };
 		FFE2099A228419FA00133132 /* RepoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RepoDetailViewController.m; sourceTree = "<group>"; };
 		FFE2099C2284306B00133132 /* RepoLastActivityDTO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RepoLastActivityDTO.h; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 		FF603C5A22847C1400998FDE /* ActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				FF893BEE22847E28003A2EE6 /* PCAngularActivityIndicatorView.h */,
-				FF893BEF22847E28003A2EE6 /* PCAngularActivityIndicatorView.m */,
+				FFD7E0422284877A00E01628 /* PCAngularActivityIndicatorView.h */,
+				FFD7E0432284877A00E01628 /* PCAngularActivityIndicatorView.m */,
 			);
 			path = ActivityIndicator;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 				FF048E19227B5D310086136C /* ReposListViewController.m in Sources */,
 				FF048E23227C22C00086136C /* RepoDTO.m in Sources */,
 				FF048E20227B8FB50086136C /* GitHubNetworkManager.m in Sources */,
-				FF893BF022847E28003A2EE6 /* PCAngularActivityIndicatorView.m in Sources */,
+				FFD7E0442284877A00E01628 /* PCAngularActivityIndicatorView.m in Sources */,
 				FF048E26227C29750086136C /* ResponseAdapter.m in Sources */,
 				FF048E1C227B6B390086136C /* ReposTableViewCell.m in Sources */,
 				FF048E29227C30610086136C /* ReposOwnerDTO.m in Sources */,
